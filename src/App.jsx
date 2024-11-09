@@ -1,34 +1,36 @@
 
 import './App.css'
-import ContactForm from './components/ContactForm/ContactForm'
-import SearchBox from './components/SearchBox/SearchBox';
-import ContactList from './components/ContactList/ContactList';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchContacts } from './redux/contactsOps';
-import { selectIsError, selectIsLoading } from './redux/contactsSlice';
+
+import { Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+import Home from './pages/HomePage/Home';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import ContactsPage from './pages/ContactsPage/contactsPage';
+import Login from './pages/LoginPage/Login';
+import Registration from './pages/RegistrationPage/Registration';
 
 const App = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch])
 
-  const isLoading = useSelector(selectIsLoading);
-  const isError = useSelector(selectIsError);
+  // const isLoading = useSelector(selectIsLoading);
+  // const isError = useSelector(selectIsError);
 
   return (
-    <div>
-      <h1>Phonebook</h1>
-      
-      <ContactForm />
-      <SearchBox />
-      {isLoading && <h2>Loading...</h2>}
-      {isError && <h2>Error...</h2>}
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path='contacts' element={<ContactsPage />} />
+        <Route path='login' element={<Login />} />
+        <Route path='registration' element={<Registration />} />
+        
 
-      <ContactList />
-    </div>
+      </Route>
+      <Route path='*' element={<NotFoundPage /> } />
+    </Routes>
   );
 };
 
