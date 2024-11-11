@@ -10,7 +10,6 @@ const Registration = () => {
         password: '',
     }
     const handleSubmit = (values, options) => {
-        console.log(values);
         dispatch(register(values));
         options.resetForm();
     }
