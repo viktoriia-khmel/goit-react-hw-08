@@ -1,11 +1,14 @@
 import { Field, Form, Formik } from "formik"
 import { useDispatch } from "react-redux"
 import { login } from "../../redux/auth/operations";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 const Login = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const initialValues = {
         
         email: '',
@@ -13,7 +16,15 @@ const Login = () => {
     }
     const handleSubmit = (values, options) => {
         console.log(values);
-        dispatch(login(values));
+        dispatch(login(values))
+            .unwrap()
+            .then(res => {
+                toast(`Welcome, ${res.user.name}!`);
+                navigate('/');
+            })
+            .catch(() => {
+                toast.error('invalid credentials');
+            });
         options.resetForm();
     }
   return (

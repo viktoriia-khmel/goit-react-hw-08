@@ -5,6 +5,7 @@ import {
   fetchContacts,
 } from "./contactsOps";
 import { selectFilter } from "./filtersSlice";
+import { logout } from "./auth/operations";
 
 const initialState = {
   items: [],
@@ -30,6 +31,7 @@ export const contactsSlice = createSlice({
         state.items.push(action.payload);
         state.loading = false;
       })
+      .addCase(logout.fulfilled, () => initialState)
 
       .addMatcher(
         isAnyOf(
