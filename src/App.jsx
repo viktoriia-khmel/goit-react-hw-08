@@ -5,7 +5,6 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import Home from './pages/HomePage/Home';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import ContactsPage from './pages/ContactsPage/ContactPage';
 import Login from './pages/LoginPage/Login';
 import Registration from './pages/RegistrationPage/Registration';
 import { refresh } from './redux/auth/operations';
