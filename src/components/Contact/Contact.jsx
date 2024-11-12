@@ -3,7 +3,7 @@ import { HiUser } from "react-icons/hi2";
 import s from './Contact.module.css';
 import { useDispatch } from "react-redux";
 
-import { deleteContactThunk } from "../../redux/contactsOps";
+import { deleteContactThunk } from "../../redux/contacts/operations";
 
 const Contact = ({ id, name, number }) => {
 

@@ -34,7 +34,7 @@ const AppBar = () => {
                       <NavLink className={buildLinkClass} to='/login'>
                           Login
                       </NavLink>
-                      <NavLink className={buildLinkClass} to='/registration'>
+                      <NavLink className={buildLinkClass} to='/register'>
                           Register
                       </NavLink>
                   </>

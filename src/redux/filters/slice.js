@@ -15,6 +15,4 @@ const filtersSlice = createSlice({
 });
 
 export const { setSearchTerm } = filtersSlice.actions;
-export default filtersSlice.reducer;
-
-export const selectFilter = (state) => state.filters.name.toLowerCase();
+export const filtersReducer = filtersSlice.reducer;

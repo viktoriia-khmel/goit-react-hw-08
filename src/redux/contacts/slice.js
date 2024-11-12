@@ -3,9 +3,10 @@ import {
   addContactThunk,
   deleteContactThunk,
   fetchContacts,
-} from "./contactsOps";
-import { selectFilter } from "./filtersSlice";
-import { logout } from "./auth/operations";
+} from "./operations";
+import { selectFilter } from "../filters/selectors";
+import { logout } from "../auth/operations";
+import { selectContacts } from "./selectors";
 
 const initialState = {
   items: [],
@@ -39,7 +40,7 @@ export const contactsSlice = createSlice({
           deleteContactThunk.pending,
           addContactThunk.pending
         ),
-        (state, action) => {
+        (state) => {
           state.loading = true;
         }
       )
@@ -66,10 +67,6 @@ export const {
 } = contactsSlice.actions;
 
 export default contactsSlice.reducer;
-
-export const selectContacts = (state) => state.contacts.items;
-export const selectIsLoading = (state) => state.contacts.loading;
-export const selectIsError = (state) => state.contacts.error;
 
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectFilter],

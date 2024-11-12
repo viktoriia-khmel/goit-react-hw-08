@@ -4,7 +4,7 @@ import { login } from "../../redux/auth/operations";
 import toast from "react-hot-toast";
 
 
-const Login = () => {
+const LoginForm = () => {
 
     const dispatch = useDispatch();
     const initialValues = {
@@ -58,4 +58,7 @@ const Login = () => {
   )
 }
 
-export default Login
+
+
+
+export default LoginForm

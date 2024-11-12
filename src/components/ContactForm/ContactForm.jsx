@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import s from './ContactForm.module.css';
 
 import { useDispatch } from "react-redux";
-import { addContactThunk } from "../../redux/contactsOps";
+import { addContactThunk } from "../../redux/contacts/operations";
 
 const FeedbackSchema = Yup.object().shape({name: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"), number: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required")});
 
