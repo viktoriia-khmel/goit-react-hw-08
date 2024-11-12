@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRefreshing } from './redux/auth/selectors';
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoutes';
 import { RestrictedRoute } from './components/RestrictedRoute/RestrictedRoute';
+import ContactsPage from './pages/ContactsPage/ContactsPage';
 
 const App = () => {
   const dispatch = useDispatch();
