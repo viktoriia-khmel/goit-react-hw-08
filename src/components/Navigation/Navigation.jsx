@@ -10,7 +10,7 @@ const buildLinkClass = ({ isActive }) => {
   };
 
   return (
-    <div>
+    <div className={s.wrap}>
       <NavLink className={buildLinkClass} to='/'>
           Home
         </NavLink>

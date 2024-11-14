@@ -10,6 +10,7 @@ const filtersSlice = createSlice({
   reducers: {
     setSearchTerm: (state, action) => {
       state.name = action.payload;
+      state.filter = action.payload;
     },
   },
 });
