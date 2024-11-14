@@ -11,7 +11,7 @@ import { refresh } from './redux/auth/operations';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRefreshing } from './redux/auth/selectors';
-import { PrivateRoute } from './components/PrivateRoute/PrivateRoutes';
+import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { RestrictedRoute } from './components/RestrictedRoute/RestrictedRoute';
 import ContactsPage from './pages/ContactsPage/ContactsPage';
 

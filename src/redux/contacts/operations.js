@@ -40,13 +40,16 @@ export const addContactThunk = createAsyncThunk(
   }
 );
 
-export const changeContacts = createAsyncThunk(
+export const changeContactThunk = createAsyncThunk(
   "changeData",
-  async (id, thunkApi) => {
+  async ({ id, name, number }, thunkApi) => {
     try {
-      const { data } = await goitApi.patch(`/contacts/${id}`);
+      const { data } = await goitApi.patch(`/contacts/${id}`, {
+        name,
+        number,
+      });
 
-      return data.id;
+      return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
