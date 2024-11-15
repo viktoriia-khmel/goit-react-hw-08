@@ -28,17 +28,16 @@ const isRefreshing = useSelector(selectIsRefreshing);
   return isRefreshing ? (
     <h2>Loading</h2>
   ) : (
-    <Routes>
-      <Route path='/' element={<Layout />}>
-        <Route index element={<Home />} />
-          <Route path='contacts' element={<PrivateRoute component={<ContactsPage /> } redirectTo='/login' />} />
-          <Route path='login' element={<RestrictedRoute component={<Login />} redirectTo='/contacts' />} />
+    <Layout>
+      <Routes>
+      <Route path='/' element={<Home />} />
+        <Route path='contacts' element={<PrivateRoute component={<ContactsPage /> } redirectTo='/login' />} />
+        <Route path='login' element={<RestrictedRoute component={<Login />} redirectTo='/contacts' />} />
         <Route path='register' element={<RestrictedRoute component={<Registration />} redirectTo='/contacts' />} />
-        
-
-      </Route>
+      
       <Route path='*' element={<NotFoundPage /> } />
-    </Routes>
+        </Routes>
+    </Layout>
   );
 };
 
